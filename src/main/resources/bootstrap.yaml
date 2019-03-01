@@ -1,37 +1,18 @@
-#spring.profiles.active=native
-#spring.cloud.config.server.native.search-locations=classpath:/
-#spring.cloud.config.server.native.search-locations=file:///C:/Users/seippoli/Desktop/config/
-#spring.cloud.config.server.native.search-locations=file:///C:/Users/seippoli/Desktop/config/SIMPLE_SEARCH/${spring.profiles.active}/
-#spring.cloud.config.server.git.uri=https://github.com/o7planning/spring-cloud-config-git-repo-example
-#spring.cloud.config.server.git.skip-ssl-validation=true
-#spring.application.name=config-server
-#spring.cloud.config.uri=http://localhost:8888/
-#spring.cloud.config.server.git.uri=https://github.com/shinichi0802/spring-cloud-config-git-repo-example
-#spring.cloud.config.server.git.uri=https://github.com/macsharker6/myProp.git
-#spring.cloud.config.server.git.uri=https://github.com/macsharker6/myProp.git
-#spring.cloud.config.server.git.username=macsharker6@protonmail.com
-#spring.cloud.config.server.git.password=acs58333
-#spring.cloud.config.server.git.clone-on-start=true
-#spring.cloud.config.server.git.force-pull=true
-#spring.cloud.config.server.git.skip-ssl-validation=true
-
 spring:
    profiles:
-     include: dev,prod
-   application:
-    name: config-server
+     include: dev,prod #native if the location is local filesystem
    cloud:
      config:
        server:
          #native:
-         #  search-locations: file:///C:/Users/seippoli/Desktop/config/
-        git.:
+           #search-locations: file:///C:/Users/..../config/
+        git:
          uri: https://github.com/macsharker6/myProp
          search-paths: DLL_*
          force-pull: true
          proxy:
            https:
              host: PROXY_HOST
-             password: PROXY_PWD
-             port: 'PORT'
-             username: PROXY_USR
+             password: PROXY_PASSWORD
+             port: 'PROXY_PORT'
+             username: PROXY_USER
